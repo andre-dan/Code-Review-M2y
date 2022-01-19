@@ -1,0 +1,80 @@
+Mobile2you Code Review
+Tabela de Conteúdos
+Mobile2you Code Review
+Tabela de Conteúdos
+Introdução
+Consistência, estilo, legibilidade
+Revisão de seu próprio código
+Fazendo Code Review
+• [Required]
+• [Improvement]
+• [Nice to have]
+• [Personal Preference]
+• [Question]
+• Comentários personalizados
+Logando horas
+Lidando com desentendimentos
+Feedback de revisão impróprio
+Não ignore os membros da sua equipe
+Offline é rápido e melhor
+Emojis são permitidos e incentivados
+Introdução
+Cada alteração feita na base de código deve ser mantida em um alto padrão e, embora a responsabilidade pela qualidade em Pull Requests seja do autor, os membros da equipe da Mobile2you têm a responsabilidade, como revisores, de verificá-la durante o processo de Code Review.
+É impossível construir uma lista concreta de requisitos que englobe todas as situações possíveis que encontraremos ao revisar os Pull Requests, então, em vez disso, este documento tenta estabelecer um conjunto comum de alguns requisitos, ao mesmo tempo que descreve uma filosofia geral que devemos ter ao abordar qualquer revisão de PR.
+O Code Review é um bom momento para aprender e ensinar. É uma chance para o autor e o revisor compartilharem mais sobre o projeto, recursos e técnicas. Portanto, sempre tente ter a mente aberta para o que os outros colaboradores estão pensando sobre o seu código. Sempre há uma oportunidade de crescer.
+Consistência, estilo, legibilidade
+Ter uma base de código relativamente consistente é uma parte importante da nossa construção de um projeto sustentável.
+O código é lido com muito mais frequência do que escrito ou modificado. Portanto, você deve, dentro de limites razoáveis, otimizar a legibilidade, porque é com o que você e seus colegas passarão a maior parte do tempo.
+Para mantê-lo, temos um style guide da plataforma, que os autores devem seguir e que os revisores devem ter em mente ao revisar um Pull Request.
+Além disso, estamos em território subjetivo. Declarações como "isso não é muito legível" dificilmente são úteis, pois não podem ser qualificadas, mas isso não significa que um revisor deve ignorar o código que é difícil de entender devido à forma como está escrito. Não há uma maneira definitivamente "melhor" de escrever qualquer código em particular, então perseguir isso não deve ser nosso objetivo. Em vez disso, revisores e autores devem aceitar que provavelmente existem muitas maneiras diferentes de realizar a mesma coisa com o código, e contanto que a contribuição esteja utilizando uma dessas maneiras, está tudo bem.
+Em caso de dúvida, confiar no padrão já utilizado na base de código, especialmente dentro e ao redor da área da base de código para a qual está sendo contribuída, geralmente é uma boa ideia.
+PRs devem ser pequenos e em geral envolver somente uma tarefa. Uma refatoração geral do código, por exemplo, não deve ser feita de uma vez.
+Também pode haver momentos em que uma pessoa seja inspirada por uma contribuição específica para introduzir uma nova forma de estilizar o código para a qual já temos diferentes diretrizes de estilo. É normal trazer isso à tona em um Pull Request, mas, em última análise, essa discussão deve se ramificar em um Pull Request separado para atualizar o Code Style, leve esta questão para o ser discutida com o Chapter.
+Revisão de seu próprio código
+O autor sempre deve ser o primeiro a fazer a revisão do código no Pull Request, de preferência antes de abri-la. Isso garantirá que o código tenha consistência no quadro geral e se houver alguma parte que não cumpra as regras de estilo de codificação. Ao abrir um PR o autor deve preencher propriamente a descrição, nela consta um template com perguntas como "O quê?" e lembretes dos testes que devem ser realizados.
+Fazendo Code Review
+Durante o processo de revisão de código, o revisor adicionará comentários às linhas ou blocos de código. Todos esses comentários devem ter uma tag indicando o tipo de comentário.
+comment
+• [Required]
+O comentário required é usado para indicar que o code style não está sendo seguido, ou tem um erro de digitação, ou um problema provavelmente pode acontecer ali, ou a arquitetura não está de acordo com a definida.
+O comentário deve ter uma task atribuída a ele e a opção Request Changes deve ser usada para evitar que seja feito o merge do PR antes que o problema seja corrigido ou discutido. Como o próprio nome indica, é obrigatório que seja manuseado pelo autor. Se o comentário solicitar uma solução inequívoca, a task pode ser marcada como concluída pelo autor. Caso contrário, o revisor deve ser notificado de que a correção foi feita e, depois de verificada pelo revisor, o autor deve marcá-la como concluída.
+task
+• [Improvement]
+Improvement é quando um revisor identifica uma melhoria que ainda não está documentada como uma regra de estilo de codificação ou prática recomendada, ou quando o revisor acredita que está afetando a legibilidade ou consistência. Além disso, esta pode ser uma categoria subjetiva impossível de definir universalmente, e é igualmente impraticável definir uma política geral de sugestão com a qual todos ficarão felizes.
+‏‏‎ ‎
+Os revisores devem se sentir à vontade para dar qualquer feedback que tenham sobre um PR, independentemente de quão subjetiva ela seja. Os autores devem se sentir igualmente à vontade para responder com feedback que eles consideram também subjetivo.
+‏‏‎ ‎
+Se você acha que um nome de variável não representa com precisão o que ela é, sugira um melhor, se puder.
+‏‏‎ ‎
+Lembre-se sempre de que você está escrevendo código e colaborando. Se uma melhoria for sugerida, sempre trate-a como uma possibilidade de melhorar seu código. Certifique-se de acompanhar se você não entender as sugestões dadas, pedindo esclarecimentos.
+‏‏‎ ‎
+Para ignorar uma melhoria, o autor deve explicar porque discorda dela.
+‏‏‎ ‎
+Embora não seja obrigatório, pode ser muito útil identificá-lo como tal .
+‏‏‎ ‎
+• [Nice to have]
+Se o revisor vir alguma oportunidade de melhorar a base do código, incluindo partes relacionadas nas quais o autor não mexeu, esta tag deve ser usada. Não é obrigatório que seja feito, mas assim como o Improvement, o autor deve responder a ela indicando porque essas alterações não serão feitas. 
+Caso faça sentido criar uma outra tarefa no Jira, adicione como comentário na resposta a chave da tarefa criada.
+Caso seja um problema da base de código legada e possa atingir outros produtos, avise o chapter do ocorrido, e então responda, resolva ou abra uma tarefa no Jira.
+• [Personal Preference]
+Todo mundo escreve código de uma maneira diferente. Esse tipo de comentário deve ser usado sempre que o revisor achar que o código pode ser escrito de uma maneira diferente. É necessário que o revisor explique por que prefere sua solução em vez da do autor, se possível. É aplicado quando o revisor pensa que sua preferência não é melhor ou pior do que o código do autor. Esses comentários podem ser ignorados, mas o autor deve responder a eles caso não os aplique.
+• [Question]
+Sempre que o revisor tiver alguma dúvida sobre o novo código, ele pode fazer um comentário com sua dúvida e a tarefa de bloquear o PR a ser feito o merge antes de ser respondido. Toda [Question] precisa ser respondida.
+• Comentários personalizados
+O revisor pode usar a criatividade para criar qualquer tipo de comentário de que precisar. Esses casos estão sempre abertos para discussão canal da plataforma.
+Logando horas
+Como revisor você deve logar as horas na tarefa correta, todo PR contém em sua descrição um link para a tarefa onde será realizado.
+Como autor, as horas de ajustes em um PR devem ser logadas na tarefa original.
+Lidando com desentendimentos
+Opiniões conflitantes entre revisores e autores acontecem, e às vezes é difícil conciliar essas opiniões. Idealmente, as pessoas podem trabalhar juntas no espírito dessas diretrizes para chegar a um consenso, mas se isso não funcionar, pode ser melhor trazer uma terceira pessoa para a discussão. Caso contrário, entre em contato com a equipe e/ou a liderança técnica. É encorajado a discutir as divergências offline. Não decline um PR, comente construtivamente e argumente. Somente o próprio autor ou o techlead pode declinar um PR.
+Feedback de revisão impróprio
+Se um feedback é apropriado ou não para um Pull Request, muitas vezes depende da motivação para dar o feedback em primeiro lugar.
+Exigir que um autor faça alterações com base principalmente na mentalidade de "como eu escreveria este código?" não é apropriado. O revisor não escreveu o código e seu propósito crítico no processo de revisão não é criar a contribuição em uma forma que seja simplesmente o que eles teriam escrito se tivessem. Se um revisor deseja fornecer este tipo de feedback, ele deve qualificá-lo como uma "Melhoria" ou "Preferência pessoal" conforme mencionado nas seções acima para deixar claro que o autor pode aceitar ou não.
+Feedbacks rudes como "isso tá uma porcaria", não é feedback de forma alguma. É rude, inapropriado e não agrega em nada. Feedbacks devem sempre ser feitos de modo cordial.
+Tirando situações que se encaixam na tag [Required], o comentário sempre deve ser feito como uma sugestão.
+Não ignore os membros da sua equipe
+Cada colaborador tem um ponto de vista e boas intenções. Um comentário nunca é, ou nunca deveria ser, um ataque pessoal, então não entenda assim. O autor deve tentar responder a todos os comentários recebidos no PR.
+Offline é rápido e melhor
+Se o autor ou revisor tiver muitas perguntas ou comentários em andamento, tente fazer a revisão do código lado a lado (respeitando o distanciamento social :D). Dessa forma, ambos economizarão tempo e aprenderão mais.
+Emojis são permitidos e incentivados
+Só porque é divertido.
